@@ -1,0 +1,28 @@
+<div class="bg-white p-4">
+	<div class="row">
+		<div class="col-12">
+			<p class="lead">{{ 'welcome' | transloco }}</p>
+		</div>
+		<div class="col-12">
+			<div class="input-group">
+				<input type="text" class="form-control" [placeholder]="'login.name'|transloco" (keyup.enter)="goPatron()" [(ngModel)]="patronName" autofocus />
+				<button type="button" class="input-group-append btn btn-primary" (click)="goPatron()">
+					<i class="fa-solid fa-arrow-right"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="bg-white p-4">
+	<div class="row">
+		<div class="col-8 offset-2">
+			<select class="form-control text-smaller" (change)="goChangeLanguage($event)" [(ngModel)]="lang">
+				<option value="en">English</option>
+				<option value="lu">L&euml;tzebuergesch</option>
+				<option value="fr">Fran&ccedil;ais</option>
+				<option value="de">Deutsch</option>
+			</select>
+		</div>
+	</div>
+</div>

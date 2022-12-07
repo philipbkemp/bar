@@ -1,6 +1,39 @@
 @import "../assets/scss/colours.scss";
+@import "../assets/scss/buttons.scss";
+
+::ng-deep {
+	* {
+		font-family:  Fira Sans, sans-serif;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		color: $blue;
+		font-family:  Ubuntu, sans-serif;
+	}
+	.bg-white {
+		border: 1px solid $blue;
+		border-top: 0;
+	}
+	p.lead {
+		font-weight: 400;
+	}
+
+	.form-control {
+		border: 1px solid $blue;
+		&:focus {
+			border-color: $blue;
+			box-shadow: 0 0 0 0.25rem $blue-hover;
+		}
+		&:is(select) {
+			appearance: auto;
+			-webkit-appearance: auto;
+		}
+	}
+}
 
 .container-fluid {
 	background-color: $blue;
 	color: white;
+	h1 {
+		color: white;
+	}
 }

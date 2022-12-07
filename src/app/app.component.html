@@ -1,11 +1,15 @@
-<div class="container-fluid">
-	<h1>{{ 'main_title' | transloco: {var:"banana"} }}</h1>
+<div class="container-fluid p-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h1>{{ 'main_title' | transloco }}</h1>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-			<i class="fa-solid fa-virus-covid"></i>
-			bar content here
 			<router-outlet></router-outlet>
 		</div>
 	</div>

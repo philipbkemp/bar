@@ -1,3 +1,7 @@
 {
-	"main_title": "Hello Bar {{ var }}"
+	"login": {
+		"name": "Bar patron"
+	},
+	"main_title": "Phil's Bar",
+	"welcome": "Welcome to the bar! Pop your name in the box below so I know who to bring the drink(s) to!"
 }

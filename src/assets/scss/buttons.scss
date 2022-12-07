@@ -1,0 +1,125 @@
+::ng-deep {
+	.btn {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		min-height: 40px;
+
+		&-back {
+			width: fit-content;
+		}
+
+		&-outline-primary,
+		&-outline-primary.disabled,
+		&-outline-primary:disabled {
+			background-color: white;
+			border-color: $blue;
+			color: $blue;
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $blue-hover !important;
+				border-color: $blue;
+				color: $blue;
+			}
+			&:focus,
+			&:active,
+			&:focus:active {
+				box-shadow: 0 0 0 0.25rem $blue-shadow;
+			}
+		}
+		&-primary,
+		&-primary.disabled,
+		&-primary:disabled {
+			background-color: $blue;
+			border-color: $blue;
+			color: white;
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $blue-hover;
+				border-color: $blue;
+				color: $blue;
+			}
+			&:focus,
+			&:active,
+			&:focus:active {
+				box-shadow: 0 0 0 0.25rem $blue-shadow;
+			}
+		}
+
+		&-danger,
+		&-danger.disabled,
+		&-danger:disabled {
+			background-color: $danger;
+			border-color: $danger-shadow;
+			color: white;
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $danger-hover !important;
+				border-color: $danger;
+				color: $danger;
+			}
+			&:focus,
+			&:active,
+			&:focus:active {
+				box-shadow: 0 0 0 0.25rem $danger-shadow;
+			}
+		}
+		&-outline-danger,
+		&-outline-danger.disabled,
+		&-outline-danger:disabled {
+			background-color: white;
+			border-color: $danger;
+			color: $danger;
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $danger-hover !important;
+				border-color: $danger;
+				color: $danger;
+			}
+			&:focus,
+			&:active,
+			&:focus:active {
+				box-shadow: 0 0 0 0.25rem $danger-shadow;
+			}
+		}
+
+		&-outline-success {
+			background-color: white;
+			border-color: $success;
+			color: $success;
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $success-hover !important;
+				border-color: $success;
+				color: $success;
+			}
+			&:focus,
+			&:active,
+			&:focus:active {
+				box-shadow: 0 0 0 0.25rem $success-shadow;
+			}
+		}
+		&-success {
+			background-color: $success;;
+			border-color: $success-shadow;
+			color: white;
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $success-hover !important;
+				border-color: $success;
+				color: $success;
+			}
+			&:focus,
+			&:active,
+			&:focus:active {
+				box-shadow: 0 0 0 0.25rem $success-shadow;
+			}
+		}
+	}
+}

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,7 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import { FormsModule } from "@angular/forms";
 
+import { AppConfigService } from "@app/services/config.service";
 import { LoginComponent } from "@app/login/login.component";
+
+export function appConfigInit(config:AppConfigService) {
+  return() => {
+    return config.load();
+  };
+}
 
 @NgModule({
   declarations: [
@@ -24,7 +31,16 @@ import { LoginComponent } from "@app/login/login.component";
   exports: [
     TranslocoRootModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appConfigInit,
+      multi: true,
+      deps: [ AppConfigService ]
+    }
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

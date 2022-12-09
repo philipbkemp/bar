@@ -5,7 +5,7 @@
 		</div>
 		<div class="col-12">
 			<div class="input-group">
-				<input type="text" class="form-control" [placeholder]="'login.name'|transloco" (keyup.enter)="goPatron()" [(ngModel)]="patronName" autofocus />
+				<input type="text" class="form-control" [placeholder]="'login.name'|transloco" (keyup.enter)="goPatron()" [(ngModel)]="patronName" autofocus (keypress)="alphaNumericTest($event)" />
 				<button type="button" class="input-group-append btn btn-primary" (click)="goPatron()">
 					<i class="fa-solid fa-arrow-right"></i>
 				</button>

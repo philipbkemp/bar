@@ -42,4 +42,14 @@ export class LoginComponent {
 		}
 	}
 
+	alphaNumericTest(e:any) {
+		var inputChar = String.fromCharCode(e.keyCode);
+		if ( /[a-zA-Z0-9\ ]/.test(inputChar) ) {
+			return true;
+		} else {
+			e.preventDefault();
+			return false;
+		}
+	}
+
 }

@@ -6,6 +6,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class AppConfigService {
 	
+	public apiEndPoint:string = "/bar";
 	public appTitle:string = "Bar";
 	public cookiePrefix:string = "bar";
 

@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslocoService } from "@ngneat/transloco";
 import { Subscription } from "rxjs";
-
-import { CookieService } from "@app/services/cookie.service";
-import { AppConfigService } from "@app/services/config.service";
 
 @Component({
 	selector: 'pbkbar-login',
@@ -16,24 +12,7 @@ export class LoginComponent {
 	patronName: string = "";
 
 	constructor(
-		private translate: TranslocoService,
-		private cookie: CookieService,
-		private config: AppConfigService
 	) {
-		let existingCookie: string|null = this.cookie.cookieGet(this.config.cookiePrefix+".lang");
-		if ( existingCookie ) {
-			this.lang = existingCookie;
-			this.translate.setActiveLang(this.lang);
-		} else {
-			this.lang = this.translate.getActiveLang();
-			this.cookie.cookieSet(this.config.cookiePrefix+".lang",this.lang);
-		}
-	}
-
-	goChangeLanguage(e:any) {
-		this.lang = e.target.value;
-		this.translate.setActiveLang(this.lang);
-		this.cookie.cookieSet(this.config.cookiePrefix+".lang",this.lang);
 	}
 
 	goPatron() {

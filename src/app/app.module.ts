@@ -9,6 +9,7 @@ import { FormsModule } from "@angular/forms";
 
 import { AppConfigService } from "@app/services/config.service";
 import { LoginComponent } from "@app/login/login.component";
+import { LanguageSelectorComponent } from "@app/language/language.component";
 
 export function appConfigInit(config:AppConfigService) {
   return() => {
@@ -19,7 +20,8 @@ export function appConfigInit(config:AppConfigService) {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    LanguageSelectorComponent
   ],
   imports: [
     BrowserModule,

@@ -14,15 +14,4 @@
 	</div>
 </div>
 
-<div class="bg-white p-4">
-	<div class="row">
-		<div class="col-8 offset-2">
-			<select class="form-control text-smaller" (change)="goChangeLanguage($event)" [(ngModel)]="lang">
-				<option value="en">English</option>
-				<option value="lu">L&euml;tzebuergesch</option>
-				<option value="fr">Fran&ccedil;ais</option>
-				<option value="de">Deutsch</option>
-			</select>
-		</div>
-	</div>
-</div>
+<pbkbar-language></pbkbar-language>

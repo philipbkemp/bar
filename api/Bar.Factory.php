@@ -51,7 +51,6 @@ class Bar {
 		// create
 		// leave
 	// barSettings
-		// is bar open
 		// login to admin
 	// barStock
 		// get all
@@ -60,6 +59,17 @@ class Bar {
 		// edit
 		// delete
 		// mark as out of stock
+
+	public static function getStatus($dbconn) {
+		$get = $dbconn->prepare("SELECT val FROM barSettings WHERE setting = 'open' AND val = 1");
+		$get->execute();
+		$res = $get->get_result();
+		if ( $res->num_rows === 0 ) {
+			return new BarResponseFailure("CLOSED");
+		}
+		return new BarResponseSuccess("OPEN");
+	}
+
 }
 
 ?>

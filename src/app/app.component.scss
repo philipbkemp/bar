@@ -13,6 +13,11 @@
 		border: 1px solid $blue;
 		border-top: 0;
 	}
+	.bg-red {
+		background-color: $danger-hover;
+		border: 1px solid $danger;
+		border-top: 0;
+	}
 	p.lead {
 		font-weight: 400;
 	}

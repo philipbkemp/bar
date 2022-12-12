@@ -1,5 +1,5 @@
 export interface BarResponse {
 	success: boolean;
-	error: boolean;
+	err: boolean;
 	payload: any;
 }

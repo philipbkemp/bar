@@ -17,6 +17,13 @@ export class ApiService {
 		this.endPoint = this.config.apiEndPoint;
 	}
 
+	getBarStatus() {
+		return this.http.get<any>(
+			`${this.endPoint}?method=status`,
+			{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}
+		);
+	}
+
 	getVersion() {
 		return this.http.get<any>(
 			`${this.endPoint}?method=version`,

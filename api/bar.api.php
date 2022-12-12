@@ -6,12 +6,16 @@
 	include "Bar.php";
 
 	// $db needs to be defined
+	$db = null;
 
 	$data = new BarResponse();
 	$data->isFailure("ACTION_UNKNOWN");
 
 	if ( isset($_GET["method"]) ) {
 		switch ( $_GET["method"] ) {
+			case "status":
+				$data = Bar::getStatus($db);
+				break;
 			case "version":
 				$data->isSuccess("0.1");
 				break;

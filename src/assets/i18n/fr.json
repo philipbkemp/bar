@@ -1,5 +1,8 @@
 {
 	"closed": "Désolé, mais le bar est actuellement fermé.",
+	"error": {
+		"connection": "Un problème existe avec quelque chose..."
+	},
 	"login": {
 		"name": "Client du bar"
 	},

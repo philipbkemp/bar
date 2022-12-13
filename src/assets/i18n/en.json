@@ -1,5 +1,8 @@
 {
 	"closed": "Sorry, but the Bar is currently closed.",
+	"error": {
+		"connection": "An unexpected issue has occurred..."
+	},
 	"login": {
 		"name": "Bar patron"
 	},

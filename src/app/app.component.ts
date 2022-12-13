@@ -21,6 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
 	isOpen: boolean = true;
 	isLoading: boolean = true;
+	isLoadingError: boolean = false;
 
 	constructor(
 		private title: Title,
@@ -48,6 +49,9 @@ export class AppComponent implements OnInit, OnDestroy {
 				this.isOpen = false;
 			}
 			console.log(this.isOpen);
+			this.isLoading = false;
+		},(error:any)=>{
+			this.isLoadingError = true;
 			this.isLoading = false;
 		});
 	}

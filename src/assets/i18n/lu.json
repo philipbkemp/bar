@@ -1,5 +1,8 @@
 {
 	"closed": "Entschëllegt, awer d'Bar ass de Moment zou.",
+	"error": {
+		"connection": "Et gëtt e Problem mat eppes..."
+	},
 	"login": {
 		"name": "Bar Client"
 	},

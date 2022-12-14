@@ -38,3 +38,4 @@ INSERT INTO barSettings (setting,val) VALUES
 	('admin','$2y$10$M6Rwmmc3UYsf0l09Al9qD.3ugh0o4EMOWIDOa7J/N6zW0dS1ZvWdC')
 ;
 ALTER TABLE barOrders ADD served BOOLEAN NOT NULL AFTER patron;
+ALTER TABLE barPatrons ADD active BOOLEAN NOT NULL AFTER name;

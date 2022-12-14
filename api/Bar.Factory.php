@@ -47,8 +47,6 @@ class Bar {
 		// mark as served
 		// delete
 	// barPatrons
-		// name is unique
-		// create
 		// leave
 	// barSettings
 		// login to admin
@@ -59,6 +57,27 @@ class Bar {
 		// edit
 		// delete
 		// mark as out of stock
+
+	public static function createPatron($dbconn,$patron) {
+		$lPatron = strtolower($patron);
+		$get = $dbconn->prepare("SELECT * FROM barPatrons WHERE LOWER(name) = ? AND active = 1");
+		$get->bind_param("s",$lPatron);
+		$get->execute();
+		$res = $get->get_result();
+		if ( $res->num_rows !== 0 ) {
+			return new BarResponseFailure("PATRON_EXISTS");
+		}
+
+		$add = $dbconn->prepare("INSERT INTO barPatrons(name,active) VALUES (?,1)");
+		$add->bind_param("s",$patron);
+		$add->execute();
+
+		if ( $add->affected_rows === 1 ) {
+			return new BarResponseSuccess($add->insert_id);
+		} else {
+			return new BarResponseFailure("FAILED_TO_ADD");
+		}
+	}
 
 	public static function getStatus($dbconn) {
 		$get = $dbconn->prepare("SELECT val FROM barSettings WHERE setting = 'open' AND val = 1");

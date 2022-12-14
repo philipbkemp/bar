@@ -31,4 +31,15 @@ export class ApiService {
 		);
 	}
 
+	welcomePatron(patronName:string) {
+		return this.http.post<any>(
+			`${this.endPoint}`,
+			{
+				"method": "connect",
+				"name": patronName
+			},
+			{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}
+		);
+	}
+
 }

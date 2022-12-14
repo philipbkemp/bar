@@ -1,13 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { TranslocoService } from "@ngneat/transloco";
 
 import { ApiService } from "@app/services/api.service";
 import { Subscription } from "rxjs";
 import { BarResponse } from "@app/interfaces/barResponse.interface";
 
+import { MessageService } from "primeng/api";
+
 @Component({
 	selector: 'pbkbar-login',
 	templateUrl: './login.component.html',
-	styleUrls: ['./login.component.scss']
+	styleUrls: ['./login.component.scss'],
+	providers: [MessageService]
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
@@ -17,11 +21,13 @@ export class LoginComponent implements OnInit, OnDestroy {
 	patronName: string = "";
 
 	constructor(
-		private api: ApiService
+		private api: ApiService,
+		private msg: MessageService,
+		private translate: TranslocoService
 	) {
 	}
 
-	ngOnInit() {		
+	ngOnInit() {
 	}
 
 	ngOnDestroy() {
@@ -35,15 +41,36 @@ export class LoginComponent implements OnInit, OnDestroy {
 				if ( r.success ) {
 					if ( r.err ) {
 						if ( r.payload === "PATRON_EXISTS" ) {
-							alert("todo: alert user that patron already exists, chose another name");
+							this.msg.clear();
+							this.msg.add({
+								severity: "error",
+								summary: this.translate.translate("patron.exists"),
+								closable: false,
+								icon: "error",
+								sticky: true
+							});
 						} else {
-							alert("todo: something else went wrong");
+							this.msg.clear();
+							this.msg.add({
+								severity: "error",
+								summary: this.translate.translate("error.connection"),
+								closable: false,
+								icon: "error",
+								sticky: true
+							});
 						}
 					} else {
-						alert("todo: You are user number "+r.payload);
+						alert("todo: You are user number "+r.payload+" and will be directed to the menu shortly with a cookie");
 					}
 				} else {
-					alert("todo: something else went wrong");
+					this.msg.clear();
+					this.msg.add({
+						severity: "error",
+						summary: this.translate.translate("error.connection"),
+						closable: false,
+						icon: "error",
+						sticky: true
+					});
 				}
 			});
 		}

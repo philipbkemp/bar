@@ -1,0 +1,14 @@
+<p-toast position="top-center">
+	<ng-template let-message pTemplate="message">
+		<span class="ng-tns-c71-1 p-toast-message-icon">
+			<i class="fa-solid fa-check fa-fw" *ngIf="message.icon === 'check'"></i>
+			<i class="fa-solid fa-power-off" *ngIf="message.icon === 'logout'"></i>
+			<i class="fa-solid fa-triangle-exclamation" *ngIf="message.icon === 'error'"></i>
+		</span>
+		<div class="p-toast-message-text ng-tns-c71-1 ng-star-inserted" style="">
+			<div class="p-toast-summary ng-tns-c71-1">
+				<strong>{{ message.summary }}</strong>
+			</div>
+		</div>
+	</ng-template>
+</p-toast>

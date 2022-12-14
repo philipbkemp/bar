@@ -7,5 +7,8 @@
 		"name": "Client du bar"
 	},
 	"main_title": "Le bar de Phil",
+	"patron": {
+		"exists": "Désolé, mais un autre client du bar utilise ce nom. Essayez avec un autre nom ?"
+	},
 	"welcome": "Bienvenue au bar ! Inscrivez votre nom dans la case ci-dessous pour que je sache à qui apporter la ou les boissons !"
 }

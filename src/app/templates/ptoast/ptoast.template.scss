@@ -1,0 +1,31 @@
+@import "../../../assets/scss/colours.scss";
+
+::ng-deep {
+	pbkbar-toaster {
+		.p-toast-top-center {
+			max-width: 90%;
+			top: 0;
+			width: 30rem;
+		}
+		.p-toast-message {
+			border: 5px solid $blue;
+			border-radius: 0 0 5px 5px;
+			border-top: 0;
+			padding: 15px 20px;
+		}
+		.p-toast-message-error {
+			background-color: $danger-bg;
+			border-color: $danger;
+			color: $danger;
+		}
+		.p-toast-message-success {
+			background-color: $success-bg;
+			border-color: $success;
+			color: $success;
+		}
+		.p-toast-message-icon {
+			font-size: 2rem;
+			width: 4rem;
+		}
+	}
+}

@@ -48,7 +48,6 @@ export class AppComponent implements OnInit, OnDestroy {
 			} else {
 				this.isOpen = false;
 			}
-			console.log(this.isOpen);
 			this.isLoading = false;
 		},(error:any)=>{
 			this.isLoadingError = true;

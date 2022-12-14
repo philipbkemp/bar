@@ -1,5 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,10 @@ import { LoginComponent } from "@app/login/login.component";
 import { LanguageSelectorComponent } from "@app/language/language.component";
 import { LoaderComponent } from "@app/loader/loader.component";
 
+import { ToastModule } from "primeng/toast";
+import { MessageService } from "primeng/api";
+import { ToasterComponent } from "@app/templates/ptoast/ptoast.template";
+
 export function appConfigInit(config:AppConfigService) {
   return() => {
     return config.load();
@@ -24,17 +29,21 @@ export function appConfigInit(config:AppConfigService) {
     AppComponent,
     LoginComponent,
     LanguageSelectorComponent,
-    LoaderComponent
+    LoaderComponent,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     TranslocoRootModule,
-    FormsModule
+    FormsModule,
+    ToastModule,
+    BrowserAnimationsModule
   ],
   exports: [
-    TranslocoRootModule
+    TranslocoRootModule,
+    ToasterComponent
   ],
   providers: [
     {
@@ -43,7 +52,8 @@ export function appConfigInit(config:AppConfigService) {
       multi: true,
       deps: [ AppConfigService ]
     },
-    Title
+    Title,
+    MessageService
   ],
   bootstrap: [
     AppComponent

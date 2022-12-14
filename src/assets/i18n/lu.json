@@ -7,5 +7,8 @@
 		"name": "Bar Client"
 	},
 	"main_title": "Phil's Bar",
+	"patron": {
+		"exists": "Entschëllegt, awer en anere Bar Client benotzt dësen Numm. Probéieren mat engem aneren Numm?"
+	},
 	"welcome": "Wëllkomm op der Bar! Schreift Ären Numm an der Këscht hei ënnen fir datt ech weess wien ech d'Gedrénks matbréngen!"
 }

@@ -89,6 +89,17 @@ class Bar {
 		return new BarResponseSuccess("OPEN");
 	}
 
+	public static function isPatronActive($dbconn,$name,$id) {
+		$get = $dbconn->prepare("SELECT * FROM barPatrons WHERE name = ? AND id = ? AND active = 1");
+		$get->bind_param("si",$name,$id);
+		$get->execute();
+		$res = $get->get_result();
+		if ( $res->num_rows === 1 ) {
+			return new BarResponseSuccess(true);
+		}
+		return new BarResponseSuccess(false);
+	}
+
 }
 
 ?>

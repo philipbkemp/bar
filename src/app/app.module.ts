@@ -9,7 +9,9 @@ import { TranslocoRootModule } from './transloco-root.module';
 import { FormsModule } from "@angular/forms";
 
 import { AppConfigService } from "@app/services/config.service";
+
 import { LoginComponent } from "@app/login/login.component";
+import { MenuComponent } from "@app/menu/menu.component";
 
 import { LanguageSelectorComponent } from "@app/language/language.component";
 import { LoaderComponent } from "@app/loader/loader.component";
@@ -28,6 +30,7 @@ export function appConfigInit(config:AppConfigService) {
   declarations: [
     AppComponent,
     LoginComponent,
+    MenuComponent,
     LanguageSelectorComponent,
     LoaderComponent,
     ToasterComponent

@@ -43,6 +43,13 @@
 					$data->isFailure("INVALID_PARAMS");
 				}
 				break;
+			case "patronValid":
+				if ( requireParam($POST,"name","string") && requireParam($POST,"uid","numeric") ) {
+					$data = Bar::isPatronActive($db,$POST["name"],$POST["uid"]);
+				} else {
+					$data->isSuccess(false);
+				}
+				break;
 		}
 	}
 

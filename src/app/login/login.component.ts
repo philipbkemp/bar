@@ -1,7 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TranslocoService } from "@ngneat/transloco";
+import { Router } from "@angular/router";
 
 import { ApiService } from "@app/services/api.service";
+import { CookieService } from "@app/services/cookie.service";
+import { AppConfigService } from "@app/services/config.service";
 import { Subscription } from "rxjs";
 import { BarResponse } from "@app/interfaces/barResponse.interface";
 
@@ -23,7 +26,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 	constructor(
 		private api: ApiService,
 		private msg: MessageService,
-		private translate: TranslocoService
+		private translate: TranslocoService,
+		private cookie: CookieService,
+		private config: AppConfigService,
+		private router: Router
 	) {
 	}
 
@@ -60,7 +66,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 							});
 						}
 					} else {
-						alert("todo: You are user number "+r.payload+" and will be directed to the menu shortly with a cookie");
+						this.cookie.cookieSet( this.config.cookiePrefix + ".patron", JSON.stringify({
+							name: this.patronName,
+							uid: r.payload
+						}) );
+						this.router.navigate(['/menu']);
 					}
 				} else {
 					this.msg.clear();

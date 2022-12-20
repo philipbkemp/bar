@@ -31,6 +31,15 @@ export class ApiService {
 		);
 	}
 
+	isPatronValid(pData:any) {
+		pData.method = "patronValid"
+		return this.http.post<any>(
+			`${this.endPoint}`,
+			pData,
+			{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}
+		);
+	}
+
 	welcomePatron(patronName:string) {
 		return this.http.post<any>(
 			`${this.endPoint}`,

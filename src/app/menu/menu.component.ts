@@ -50,7 +50,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 				}
 			});
 		} else {
-			this.isLoading = false;
+			this.router.navigate(['/']);
 		}
 	}
 

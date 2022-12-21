@@ -16,12 +16,25 @@
 <div class="bg-white p-4" *ngIf="!isLoading && !isLoadingError">
 	<div class="row">
 		<div class="col-12">
-			<p class="lead">{{ 'what_will_it_be' | transloco }}</p>
+			<p class="lead mb-0">what will it be <strong>Tom?</strong></p>
 		</div>
+	</div>
+</div>
+
+<div class="bg-white p-4" *ngIf="!isLoading && !isLoadingError">
+	<div class="row">
 		<div class="col-12">
 			menu here
 		</div>
 	</div>
+</div>
+
+<div
+	class="bg-red p-2 text-center doLogout"
+	*ngIf="!isLoading && !isLoadingError"
+	[innerHtml]="'patron.logout' | transloco: { name: patronName }"
+	(click)="logoutPatron()"
+	>
 </div>
 
 <pbkbar-language></pbkbar-language>

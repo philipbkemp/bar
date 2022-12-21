@@ -8,7 +8,8 @@
 	},
 	"main_title": "Phil's Bar",
 	"patron": {
-		"exists": "Entschuldigung, aber eine andere Bar-Kunde hat diesen Namen angenommen. Versuchen Sie es nochmal?"
+		"exists": "Entschuldigung, aber eine andere Bar-Kunde hat diesen Namen angenommen. Versuchen Sie es nochmal?",
+		"logout": "Nicht <strong>{{ name }}</strong>? Klicken Sie hier zum Abmelden"
 	},
 	"welcome": "Willkommen in der Bar! Geben Sie Ihren Namen in das Feld unten ein, damit ich weiß, wem ich die Getränke bringen muss!"
 }

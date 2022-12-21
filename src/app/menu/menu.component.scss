@@ -1,0 +1,10 @@
+@import "../../assets/scss/colours.scss";
+
+.doLogout {
+	color: $danger;
+	cursor: pointer;
+	&:hover {
+		background-color: $danger-shadow;
+		color: black;
+	}
+}

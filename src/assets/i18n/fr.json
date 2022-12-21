@@ -8,7 +8,8 @@
 	},
 	"main_title": "Le bar de Phil",
 	"patron": {
-		"exists": "Désolé, mais un autre client du bar utilise ce nom. Essayez avec un autre nom ?"
+		"exists": "Désolé, mais un autre client du bar utilise ce nom. Essayez avec un autre nom ?",
+		"logout": "Vous n'êtes pas <strong>{{ name }}</strong> ? Cliquer ici pour se déconnecter"
 	},
 	"welcome": "Bienvenue au bar ! Inscrivez votre nom dans la case ci-dessous pour que je sache à qui apporter la ou les boissons !"
 }

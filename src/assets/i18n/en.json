@@ -8,7 +8,8 @@
 	},
 	"main_title": "Phil's Bar",
 	"patron": {
-		"exists": "Sorry, but another Patron is using that name. Try something else?"
+		"exists": "Sorry, but another Patron is using that name. Try something else?",
+		"logout": "Not <strong>{{ name }}</strong>? Click here to logout"
 	},
 	"welcome": "Welcome to the bar! Pop your name in the box below so I know who to bring the drink(s) to!"
 }

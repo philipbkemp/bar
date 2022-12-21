@@ -8,7 +8,8 @@
 	},
 	"main_title": "Phil's Bar",
 	"patron": {
-		"exists": "Entschëllegt, awer en anere Bar Client benotzt dësen Numm. Probéieren mat engem aneren Numm?"
+		"exists": "Entschëllegt, awer en anere Bar Client benotzt dësen Numm. Probéieren mat engem aneren Numm?",
+		"logout": "Net <strong>{{ name }}</strong>? Klickt hei fir Iech auszeginn"
 	},
 	"welcome": "Wëllkomm op der Bar! Schreift Ären Numm an der Këscht hei ënnen fir datt ech weess wien ech d'Gedrénks matbréngen!"
 }

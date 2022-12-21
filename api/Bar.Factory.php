@@ -46,8 +46,6 @@ class Bar {
 		// create
 		// mark as served
 		// delete
-	// barPatrons
-		// leave
 	// barSettings
 		// login to admin
 	// barStock
@@ -76,6 +74,18 @@ class Bar {
 			return new BarResponseSuccess($add->insert_id);
 		} else {
 			return new BarResponseFailure("FAILED_TO_ADD");
+		}
+	}
+
+	public static function disconnectPatron($dbconn,$name,$uid) {
+		$upd = $dbconn->prepare("UPDATE barPatrons SET active = 0 WHERE name = ? AND id = ? AND active = 1");
+		$upd->bind_param("si",$name,$uid);
+		$upd->execute();
+
+		if ( $upd->affected_rows === 1 ) {
+			return new BarResponseSuccess(true);
+		} else {
+			return new BarResponseFailure("FAILED_TO_LOGOUT");
 		}
 	}
 

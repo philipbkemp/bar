@@ -40,6 +40,18 @@ export class ApiService {
 		);
 	}
 
+	logoutPatron(pName:string,pId:number) {
+		return this.http.post<any>(
+			`${this.endPoint}`,
+			{
+				"method": "disconnect",
+				"name": pName,
+				"uid": pId
+			},
+			{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}
+		);
+	}
+
 	welcomePatron(patronName:string) {
 		return this.http.post<any>(
 			`${this.endPoint}`,

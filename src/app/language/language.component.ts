@@ -18,20 +18,20 @@ export class LanguageSelectorComponent {
 		private cookie: CookieService,
 		private config: AppConfigService
 	) {
-		let existingCookie: string|null = this.cookie.cookieGet(this.config.cookiePrefix+".lang");
+		let existingCookie: string|null = this.cookie.cookieGet("lang");
 		if ( existingCookie ) {
 			this.lang = existingCookie;
 			this.translate.setActiveLang(this.lang);
 		} else {
 			this.lang = this.translate.getActiveLang();
-			this.cookie.cookieSet(this.config.cookiePrefix+".lang",this.lang);
+			this.cookie.cookieSet("lang",this.lang);
 		}
 	}
 
 	goChangeLanguage(e:any) {
 		this.lang = e.target.value;
 		this.translate.setActiveLang(this.lang);
-		this.cookie.cookieSet(this.config.cookiePrefix+".lang",this.lang);
+		this.cookie.cookieSet("lang",this.lang);
 	}
 
 }

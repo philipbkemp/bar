@@ -32,7 +32,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		let knownPatron:any = this.cookie.cookieGet( this.config.cookiePrefix + ".patron");
+		let knownPatron:any = this.cookie.cookieGet("patron");
 		if ( knownPatron ) {
 			knownPatron = JSON.parse(knownPatron);
 			if ( this.sub_patronStatus ) { this.sub_patronStatus.unsubscribe(); }

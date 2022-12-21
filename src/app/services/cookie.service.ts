@@ -1,17 +1,23 @@
 import { Injectable } from "@angular/core";
 
+import { AppConfigService } from "@app/services/config.service";
+
 @Injectable({
 	providedIn: "root"
 })
 export class CookieService {
 
-	constructor() {}
+	constructor(
+		private config: AppConfigService
+	) {}
 
 	cookieDelete(name:string) {
+		name = this.config.cookiePrefix + "." + name;
 		this.cookieSet(name,"",-9999);
 	}
 
 	cookieGet(name:string) {
+		name = this.config.cookiePrefix + "." + name;
 		let ca:Array<string> = document.cookie.split(";");
 		let caLen:number = ca.length;
 		let cookieName:string = `${name}=`;
@@ -28,6 +34,7 @@ export class CookieService {
 	}
 
 	cookieSet(name:string, value:string, expireDays:number=30, path:string="/") {
+		name = this.config.cookiePrefix + "." + name;
 		let d:Date = new Date();
 		d.setTime( d.getTime()+(expireDays*24*60*60*1000) );
 		let expires:string = `expires=${d.toUTCString()}`;

@@ -55,7 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
 			}
 
 			// check if they already have a login cookie
-			let knownPatron:any = this.cookie.cookieGet( this.config.cookiePrefix + ".patron");
+			let knownPatron:any = this.cookie.cookieGet("patron");
 			if ( knownPatron ) {
 				knownPatron = JSON.parse(knownPatron);
 				if ( this.sub_patronStatus ) { this.sub_patronStatus.unsubscribe(); }

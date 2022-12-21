@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 							});
 						}
 					} else {
-						this.cookie.cookieSet( this.config.cookiePrefix + ".patron", JSON.stringify({
+						this.cookie.cookieSet("patron", JSON.stringify({
 							name: this.patronName,
 							uid: r.payload
 						}) );

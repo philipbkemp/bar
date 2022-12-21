@@ -1,4 +1,19 @@
-<div class="bg-white p-4">
+<pbkbar-loader *ngIf="isLoading"></pbkbar-loader>
+
+<div class="col-12" *ngIf="!isLoading && isLoadingError">
+	<div class="bg-red p-4">
+		<div class="row">
+			<div class="col-12">
+				<p class="lead mb-0">
+					<strong>{{ 'error.connection' | transloco }}</strong>
+				</p>
+			</div>
+		</div>
+	</div>
+	<pbkbar-language></pbkbar-language>
+</div>
+
+<div class="bg-white p-4" *ngIf="!isLoading && !isLoadingError">
 	<div class="row">
 		<div class="col-12">
 			<p class="lead">{{ 'what_will_it_be' | transloco }}</p>

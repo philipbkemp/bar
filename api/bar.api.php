@@ -50,6 +50,9 @@
 					$data->isSuccess(false);
 				}
 				break;
+			case "getMenu":
+				$data = Bar::getMenu($db);
+				break;
 			case "patronValid":
 				if ( requireParam($POST,"name","string") && requireParam($POST,"uid","numeric") ) {
 					$data = Bar::isPatronActive($db,$POST["name"],$POST["uid"]);

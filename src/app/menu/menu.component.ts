@@ -20,12 +20,16 @@ export class MenuComponent implements OnInit, OnDestroy {
 
 	sub_patronStatus!:Subscription;
 	sub_patronLogout!:Subscription;
+	sub_menu!:Subscription;
 
 	isLoading: boolean = true;
 	isLoadingError: boolean = false;
 
 	patronName: string = "";
 	patronId: number = -1;
+
+	menu: any[] = [];
+	openedMenu: string = "";
 
 	constructor(
 		private config: AppConfigService,
@@ -44,8 +48,8 @@ export class MenuComponent implements OnInit, OnDestroy {
 			if ( this.sub_patronStatus ) { this.sub_patronStatus.unsubscribe(); }
 			this.sub_patronStatus = this.api.isPatronValid(knownPatron).subscribe((r:BarResponse)=>{
 				if ( r.success && ! r.err ) {
-					this.isLoading = false;
 					if ( ! r.payload ) {
+						this.isLoading = false;
 						this.router.navigate(['/']);
 					} else {
 						this.loadDrinks();
@@ -63,6 +67,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		if ( this.sub_patronStatus ) { this.sub_patronStatus.unsubscribe(); }
 		if ( this.sub_patronLogout ) { this.sub_patronLogout.unsubscribe(); }
+		if ( this.sub_menu ) { this.sub_menu.unsubscribe(); }
 	}
 
 	logoutPatron() {
@@ -76,7 +81,25 @@ export class MenuComponent implements OnInit, OnDestroy {
 	}
 
 	loadDrinks() {
-		console.log("LOADING DRINKS");
+		if ( this.sub_menu ) { this.sub_menu.unsubscribe(); }
+		this.sub_menu = this.api.getMenu().subscribe((r:BarResponse)=>{
+			if ( r.success && !r.err ) {
+				this.menu = r.payload;
+				this.isLoading = false;
+			} else {
+				this.isLoadingError = true;
+				this.isLoading = false;
+			}
+		});
+	}
+
+	showMenu(category:number) {
+		let selectedMenu = this.menu.find((x:any)=>{return x.id === category})
+		this.openedMenu = selectedMenu.name;
+	}
+
+	closeMenu() {
+		this.openedMenu = "";
 	}
 
 }

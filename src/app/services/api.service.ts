@@ -24,6 +24,16 @@ export class ApiService {
 		);
 	}
 
+	getMenu() {
+		return this.http.post<any>(
+			`${this.endPoint}`,
+			{
+				"method": "getMenu"
+			},
+			{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}
+		);
+	}
+
 	getVersion() {
 		return this.http.get<any>(
 			`${this.endPoint}?method=version`,

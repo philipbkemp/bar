@@ -89,6 +89,34 @@ class Bar {
 		}
 	}
 
+	public static function getMenu($dbconn) {
+		$get = $dbconn->prepare("SELECT * FROM barCategories WHERE id IN ( SELECT category FROM barStock WHERE inStock = 1) ORDER BY seq");
+		$get->execute();
+		$res = $get->get_result();
+
+		$MENU = [];
+		while ( $row = $res->fetch_assoc() ) {
+			$m = (object) $row;
+			
+			$getDrinks = $dbconn->prepare("SELECT * FROM barStock WHERE inStock = 1 AND category=? ORDER BY name");
+			$getDrinks->bind_param("i",$m->id);
+			$getDrinks->execute();
+			$resDrinks = $getDrinks->get_result();
+			$DRINKS = [];
+			while ( $rowDrinks = $resDrinks->fetch_assoc() ) {
+				$DRINKS[] = (object) $rowDrinks;
+			}
+			$m->drinks = $DRINKS;
+
+			$MENU[] = $m;
+		}
+
+		if ( count($MENU) === 0 ) {
+			return new BarResponseFailure("EMPTY");
+		}
+		return new BarResponseSuccess($MENU);
+	}
+
 	public static function getStatus($dbconn) {
 		$get = $dbconn->prepare("SELECT val FROM barSettings WHERE setting = 'open' AND val = 1");
 		$get->execute();

@@ -7,6 +7,10 @@
 		"name": "Bar-Kunde"
 	},
 	"main_title": "Phil's Bar",
+	"menu": {
+		"ask": "Was wird es sein, <strong>{{ name }}</strong>?",
+		"back": "Eigentlich bestelle ich was anderes.."
+	},
 	"patron": {
 		"exists": "Entschuldigung, aber eine andere Bar-Kunde hat diesen Namen angenommen. Versuchen Sie es nochmal?",
 		"logout": "Nicht <strong>{{ name }}</strong>? Klicken Sie hier zum Abmelden"

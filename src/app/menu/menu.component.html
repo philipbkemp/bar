@@ -13,20 +13,49 @@
 	<pbkbar-language></pbkbar-language>
 </div>
 
-<div class="bg-white p-4" *ngIf="!isLoading && !isLoadingError">
+<div class="bg-white p-4" *ngIf="!isLoading && !isLoadingError && openedMenu === ''">
 	<div class="row">
 		<div class="col-12">
-			<p class="lead mb-0">what will it be <strong>Tom?</strong></p>
+			<p class="lead mb-0" [innerHtml]="'menu.ask' | transloco:{name:patronName}"></p>
+		</div>
+	</div>
+</div>
+
+<div class="bg-white p-4" *ngIf="!isLoading && !isLoadingError && openedMenu !== ''">
+	<div class="row">
+		<div class="col-12">
+			<button class="btn btn-outline-danger w-100" (click)="closeMenu()">
+				<i class="fa-solid fa-chevron-left fa-fw me-2"></i>
+				{{ 'menu.back' | transloco }}
+			</button>
 		</div>
 	</div>
 </div>
 
 <div class="bg-white p-4" *ngIf="!isLoading && !isLoadingError">
-	<div class="row">
-		<div class="col-12">
-			menu here
+
+	<div class="row" *ngIf="openedMenu === ''">
+
+		<div class="col-12" *ngFor="let c of menu; let isLast = last;" [class.mb-3]="!isLast">
+			
+			<button class="btn btn-outline-primary w-100 py-3 menuBtn" (click)="showMenu(c.id)">
+				<i *ngIf="c.icon === 'whiskey'" class="fa-solid fa-whiskey-glass fa-fw me-3"></i>
+				<i *ngIf="c.icon === 'wine'" class="fa-solid fa-wine-glass-empty fa-fw me-3"></i>
+				<i *ngIf="c.icon === 'beer'" class="fa-solid fa-beer-mug-empty fa-fw me-3"></i>
+				<i *ngIf="c.icon === 'water'" class="fa-solid fa-glass-water fa-fw me-3"></i>
+				<i *ngIf="c.icon === 'hot'" class="fa-solid fa-mug-saucer fa-fw me-3"></i>
+				<i *ngIf="c.icon === 'cocktail'" class="fa-solid fa-martini-glass fa-fw me-3"></i>
+				{{ c.name }}
+			</button>
+
 		</div>
+
 	</div>
+
+	<div class="row" *ngIf="openedMenu !== ''">
+		drink options for {{ openedMenu }}
+	</div>
+
 </div>
 
 <div

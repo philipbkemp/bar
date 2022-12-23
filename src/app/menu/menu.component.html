@@ -34,6 +34,12 @@
 
 <div class="bg-white p-4" *ngIf="!isLoading && !isLoadingError">
 
+	<div class="row" *ngIf="emptyStock">
+		<div class="col-12 text-center">
+			{{ 'menu.empty' | transloco }}
+		</div>
+	</div>
+
 	<div class="row" *ngIf="openedMenu === ''">
 
 		<div class="col-12" *ngFor="let c of menu; let isLast = last;" [class.mb-3]="!isLast">

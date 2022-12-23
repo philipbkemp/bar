@@ -24,6 +24,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 
 	isLoading: boolean = true;
 	isLoadingError: boolean = false;
+	emptyStock: boolean = false;
 
 	patronName: string = "";
 	patronId: number = -1;
@@ -87,7 +88,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 				this.menu = r.payload;
 				this.isLoading = false;
 			} else {
-				this.isLoadingError = true;
+				this.emptyStock = true;
 				this.isLoading = false;
 			}
 		});

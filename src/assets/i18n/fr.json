@@ -9,7 +9,8 @@
 	"main_title": "Le bar de Phil",
 	"menu": {
 		"ask": "Que veux-tu <strong>{{ name }}</strong> ?",
-		"back": "En fait, je vais commander autre chose.."
+		"back": "En fait, je vais commander autre chose..",
+		"empty": "Il n'y a rien en stock ! Oops..."
 	},
 	"patron": {
 		"exists": "Désolé, mais un autre client du bar utilise ce nom. Essayez avec un autre nom ?",

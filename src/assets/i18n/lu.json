@@ -9,7 +9,8 @@
 	"main_title": "Phil's Bar",
 	"menu": {
 		"ask": "Wat wëllt Dir <strong>{{ name }}</strong>?",
-		"back": "Eigentlech bestellen ech eppes anescht .."
+		"back": "Eigentlech bestellen ech eppes anescht ..",
+		"empty": "Et gesäit aus wéi wann d'Bar eidel ass! Oops..."
 	},
 	"patron": {
 		"exists": "Entschëllegt, awer en anere Bar Client benotzt dësen Numm. Probéieren mat engem aneren Numm?",

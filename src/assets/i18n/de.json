@@ -9,7 +9,8 @@
 	"main_title": "Phil's Bar",
 	"menu": {
 		"ask": "Was wird es sein, <strong>{{ name }}</strong>?",
-		"back": "Eigentlich bestelle ich was anderes.."
+		"back": "Eigentlich bestelle ich was anderes..",
+		"empty": "Die Bar hat nichts! Hoppla..."
 	},
 	"patron": {
 		"exists": "Entschuldigung, aber eine andere Bar-Kunde hat diesen Namen angenommen. Versuchen Sie es nochmal?",

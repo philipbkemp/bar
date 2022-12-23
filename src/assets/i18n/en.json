@@ -9,7 +9,8 @@
 	"main_title": "Phil's Bar",
 	"menu": {
 		"ask": "What'll it be <strong>{{ name }}</strong>?",
-		"back": "Actually, I'll order something else.."
+		"back": "Actually, I'll order something else..",
+		"empty": "It seems we're out - of everything! Oops..."
 	},
 	"patron": {
 		"exists": "Sorry, but another Patron is using that name. Try something else?",

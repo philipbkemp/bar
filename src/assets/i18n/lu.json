@@ -12,6 +12,11 @@
 		"back": "Eigentlech bestellen ech eppes anescht ..",
 		"empty": "Et gesäit aus wéi wann d'Bar eidel ass! Oops..."
 	},
+	"order": {
+		"generic_err": "Kann dës Bestellung net de Moment maachen",
+		"placed": "Bestellung erstallt!",
+		"stock_issue": "Entschëllegt, dat Gedrénks ass net méi op Lager"
+	},
 	"patron": {
 		"exists": "Entschëllegt, awer en anere Bar Client benotzt dësen Numm. Probéieren mat engem aneren Numm?",
 		"logout": "Net <strong>{{ name }}</strong>? Klickt hei fir Iech auszeginn"

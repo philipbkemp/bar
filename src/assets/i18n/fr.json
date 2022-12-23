@@ -12,6 +12,11 @@
 		"back": "En fait, je vais commander autre chose..",
 		"empty": "Il n'y a rien en stock ! Oops..."
 	},
+	"order": {
+		"generic_err": "Impossible de passer cette commande pour le moment",
+		"placed": "Commande créée !",
+		"stock_issue": "Désolé, cette boisson n'est plus en stock"
+	},
 	"patron": {
 		"exists": "Désolé, mais un autre client du bar utilise ce nom. Essayez avec un autre nom ?",
 		"logout": "Vous n'êtes pas <strong>{{ name }}</strong> ? Cliquer ici pour se déconnecter"

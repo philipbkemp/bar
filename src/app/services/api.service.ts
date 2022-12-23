@@ -62,6 +62,18 @@ export class ApiService {
 		);
 	}
 
+	placeOrder(patron:number,drink:number) {
+		return this.http.post<any>(
+			`${this.endPoint}`,
+			{
+				"method": "placeOrder",
+				"patron": patron,
+				"drink": drink
+			},
+			{headers : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}}
+		);
+	}
+
 	welcomePatron(patronName:string) {
 		return this.http.post<any>(
 			`${this.endPoint}`,

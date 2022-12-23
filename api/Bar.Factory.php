@@ -43,7 +43,6 @@ class Bar {
 		// move down
 	// barOrders
 		// get
-		// create
 		// mark as served
 		// delete
 	// barSettings
@@ -136,6 +135,44 @@ class Bar {
 			return new BarResponseSuccess(true);
 		}
 		return new BarResponseSuccess(false);
+	}
+
+	public static function placeOrder($dbconn,$patron,$drink) {
+		// is bar open?
+		$get = $dbconn->prepare("SELECT val FROM barSettings WHERE setting = 'open' AND val = 1");
+		$get->execute();
+		$res = $get->get_result();
+		if ( $res->num_rows === 0 ) {
+			return new BarResponseFailure("BAR_CLOSED");
+		}
+
+		// is patron active?
+		$get = $dbconn->prepare("SELECT * FROM barPatrons WHERE id = ? AND active = 1");
+		$get->bind_param("i",$patron);
+		$get->execute();
+		$res = $get->get_result();
+		if ( $res->num_rows === 0 ) {
+			return new BarResponseFailure("INACTIVE_PATRON");
+		}
+
+		// is drink in stock?
+		$get = $dbconn->prepare("SELECT * FROM barStock WHERE id = ? AND inStock = 1");
+		$get->bind_param("i",$drink);
+		$get->execute();
+		$res = $get->get_result();
+		if ( $res->num_rows === 0 ) {
+			return new BarResponseFailure("STOCK_ISSUE");
+		}
+
+		// place order
+		$add = $dbconn->prepare("INSERT INTO barOrders (drink,patron,served,created) VALUES (?,?,0,NOW())");
+		$add->bind_param("ii",$drink,$patron);
+		$add->execute();
+		if ( $add->affected_rows === 1 ) {
+			return new BarResponseSuccess(true);
+		}
+
+		return new BarResponseFailure("ERR");
 	}
 
 }

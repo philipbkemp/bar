@@ -12,6 +12,11 @@
 		"back": "Eigentlich bestelle ich was anderes..",
 		"empty": "Die Bar hat nichts! Hoppla..."
 	},
+	"order": {
+		"generic_err": "Diese Bestellung kann derzeit nicht aufgegeben werden",
+		"placed": "Bestellung erstellt!",
+		"stock_issue": "Tut mir leid, das Getränk ist nicht mehr auf Lager"
+	},
 	"patron": {
 		"exists": "Entschuldigung, aber eine andere Bar-Kunde hat diesen Namen angenommen. Versuchen Sie es nochmal?",
 		"logout": "Nicht <strong>{{ name }}</strong>? Klicken Sie hier zum Abmelden"

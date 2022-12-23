@@ -53,6 +53,13 @@
 			case "getMenu":
 				$data = Bar::getMenu($db);
 				break;
+			case "placeOrder":
+				if ( requireParam($POST,"patron","numeric") && requireParam($POST,"drink","numeric") ) {
+					$data = Bar::placeOrder($db,$POST["patron"],$POST["drink"]);
+				} else {
+					$data->isFailure("INVALID_PARAMS");
+				}
+				break;
 			case "patronValid":
 				if ( requireParam($POST,"name","string") && requireParam($POST,"uid","numeric") ) {
 					$data = Bar::isPatronActive($db,$POST["name"],$POST["uid"]);

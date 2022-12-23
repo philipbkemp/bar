@@ -61,7 +61,7 @@
 	<div class="row" *ngIf="openedMenu !== ''">
 
 		<div class="col-10 offset-1" *ngFor="let d of menuDrinks; let isLast = last;" [class.mb-3]="!isLast">
-			<button class="btn btn-outline-primary w-100 py-3 menuBtnSub">
+			<button class="btn btn-outline-primary w-100 py-3 menuBtnSub" (click)="placeOrder(d.id)">
 				{{ d.name }}
 			</button>
 		</div>

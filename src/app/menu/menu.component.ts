@@ -31,6 +31,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 
 	menu: any[] = [];
 	openedMenu: string = "";
+	menuDrinks: any[] = [];
 
 	constructor(
 		private config: AppConfigService,
@@ -97,6 +98,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 	showMenu(category:number) {
 		let selectedMenu = this.menu.find((x:any)=>{return x.id === category})
 		this.openedMenu = selectedMenu.name;
+		this.menuDrinks = selectedMenu.drinks;
 	}
 
 	closeMenu() {

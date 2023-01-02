@@ -21,6 +21,14 @@
 	p.lead {
 		font-weight: 400;
 	}
+	::selection {
+		background-color: $blue;
+		color: white;
+	}
+	h1::selection {
+		background-color: white;
+		color: $blue;
+	}
 
 	.form-control {
 		border: 1px solid $blue;
